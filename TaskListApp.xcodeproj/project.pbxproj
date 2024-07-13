@@ -13,7 +13,6 @@
 		DCE1D6852C4184C800CAEAB2 /* TaskListApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCE1D6832C4184C800CAEAB2 /* TaskListApp.xcdatamodeld */; };
 		DCE1D6872C4184CA00CAEAB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCE1D6862C4184CA00CAEAB2 /* Assets.xcassets */; };
 		DCE1D68A2C4184CA00CAEAB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCE1D6882C4184CA00CAEAB2 /* LaunchScreen.storyboard */; };
-		DCE1D6942C41C27D00CAEAB2 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE1D6932C41C27D00CAEAB2 /* NewTaskViewController.swift */; };
 		DCE1D6962C42990400CAEAB2 /* FilledButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE1D6952C42990400CAEAB2 /* FilledButtonFactory.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +25,6 @@
 		DCE1D6862C4184CA00CAEAB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCE1D6892C4184CA00CAEAB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCE1D68B2C4184CA00CAEAB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DCE1D6932C41C27D00CAEAB2 /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 		DCE1D6952C42990400CAEAB2 /* FilledButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledButtonFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,7 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				DCE1D67E2C4184C800CAEAB2 /* TaskListViewController.swift */,
-				DCE1D6932C41C27D00CAEAB2 /* NewTaskViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -160,7 +157,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCE1D6852C4184C800CAEAB2 /* TaskListApp.xcdatamodeld in Sources */,
-				DCE1D6942C41C27D00CAEAB2 /* NewTaskViewController.swift in Sources */,
 				DCE1D6962C42990400CAEAB2 /* FilledButtonFactory.swift in Sources */,
 				DCE1D67F2C4184C800CAEAB2 /* TaskListViewController.swift in Sources */,
 				DCE1D67B2C4184C800CAEAB2 /* AppDelegate.swift in Sources */,
