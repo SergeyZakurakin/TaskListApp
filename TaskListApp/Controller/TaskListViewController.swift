@@ -7,7 +7,16 @@
 
 import UIKit
 
+protocol NewTaskViewControllerDelegate: AnyObject {
+    func reloadData()
+}
+
+
 final class TaskListViewController: UITableViewController {
+    
+    
+    private var taskList: [ToDoTask] = []
+    private let cellId = "task"
     
     //MARK: - UI
     
@@ -20,24 +29,62 @@ final class TaskListViewController: UITableViewController {
         super.viewDidLoad()
         setupNavigationBar()
         view.backgroundColor = .systemBackground
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         
     }
     
     @objc private func addNewTask() {
-        let newTaskVC = NewTaskViewController()
-        present(newTaskVC, animated: true)
-        
-        
         // метод пирехода экрана
-        
+        let newTaskVC = NewTaskViewController()
+        newTaskVC.delegate = self
+        present(newTaskVC, animated: true)
         
     }
     
+    private func fetchData() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let fetchRequest = ToDoTask.fetchRequest()
+        
+        do {
+            taskList = try appDelegate.persistentContainer.viewContext.fetch(fetchRequest)
+        } catch {
+            print(error)
+        }
+    }
     
 }
-    //MARK: - Setup UI
-    
 
+
+//MARK: - setup TableViewDataSource
+extension TaskListViewController {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        taskList.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        // извлечение обекта
+        let toDoTask = taskList[indexPath.row]
+        
+        var content = cell.defaultContentConfiguration()
+        content.text = toDoTask.title
+        
+        cell.contentConfiguration = content
+        
+        return cell
+    }
+    
+    
+    
+    
+}
+
+
+
+
+
+    //MARK: - Setup Navigation Bar
 extension TaskListViewController {
     
     private func setupNavigationBar() {
@@ -71,3 +118,10 @@ extension TaskListViewController {
     
 }
 
+extension TaskListViewController: NewTaskViewControllerDelegate {
+    func reloadData() {
+        fetchData()
+        tableView.reloadData()
+    }
+    
+}

@@ -9,6 +9,7 @@ import UIKit
 
 final class NewTaskViewController: UIViewController {
     
+    weak var delegate: NewTaskViewControllerDelegate?
     
     //MARK: - UI
     private lazy var taskTextField: UITextField = {
@@ -71,6 +72,11 @@ final class NewTaskViewController: UIViewController {
     }
     
     private func save() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let task = ToDoTask(context: appDelegate.persistentContainer.viewContext)
+        task.title = taskTextField.text
+        appDelegate.saveContext()
+        delegate?.reloadData()
         dismiss(animated: true)
     }
     
